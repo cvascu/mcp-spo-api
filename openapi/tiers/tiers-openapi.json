@@ -1,0 +1,1895 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Salvia Pilotage Opérations - Domaine tiers",
+    "version": "1.5",
+    "description": "Accès aux entités SPO du domaine tiers",
+    "x-logo": {
+      "url": "https://www.salviadeveloppement.fr/logo_salvia.png",
+      "href": "https://www.salviadeveloppement.fr",
+      "altText": "Salvia Développement"
+    }
+  },
+  "paths": {
+    "/api/tiers/tiers": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/select"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "$ref": "#/components/parameters/orderby"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "value"
+                  ],
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/tiers"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": "OK, retourne une liste d'objets"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error401"
+          },
+          "403": {
+            "$ref": "#/components/responses/Error403"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/Error5XX"
+          }
+        },
+        "tags": [
+          "Tiers"
+        ],
+        "operationId": "getTiers",
+        "summary": "Récupérer des tiers",
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/cURL/get.bat"
+            }
+          },
+          {
+            "lang": "C#",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/CSharp/get.cs"
+            }
+          },
+          {
+            "lang": "Node",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/JS/get.js"
+            }
+          },
+          {
+            "lang": "Ruby",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/Ruby/get.rb"
+            }
+          },
+          {
+            "lang": "Python",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/Python/get.py"
+            }
+          }
+        ],
+        "x-directapi": true
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/prefer"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/tiers"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/OKResult_tiers"
+          },
+          "204": {
+            "$ref": "#/components/responses/OKNoResult"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error401"
+          },
+          "403": {
+            "$ref": "#/components/responses/Error403"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/Error5XX"
+          }
+        },
+        "tags": [
+          "Tiers"
+        ],
+        "operationId": "addTiers",
+        "summary": "Créer un tiers",
+        "description": "{{description}}",
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/cURL/post.bat"
+            }
+          },
+          {
+            "lang": "C#",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/CSharp/post.cs"
+            }
+          },
+          {
+            "lang": "Node",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/JS/post.js"
+            }
+          },
+          {
+            "lang": "Ruby",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/Ruby/post.rb"
+            }
+          },
+          {
+            "lang": "Python",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/Python/post.py"
+            }
+          }
+        ]
+      }
+    },
+    "/api/tiers/tiers/{idTiers}": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/expand"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tiers"
+                }
+              }
+            },
+            "description": "OK, retourne un objet"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error401"
+          },
+          "403": {
+            "$ref": "#/components/responses/Error403"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/Error5XX"
+          }
+        },
+        "tags": [
+          "Tiers"
+        ],
+        "operationId": "getTiersById",
+        "summary": "Récupérer un tiers",
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/cURL/get.bat"
+            }
+          },
+          {
+            "lang": "C#",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/CSharp/get.cs"
+            }
+          },
+          {
+            "lang": "Node",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/JS/get.js"
+            }
+          },
+          {
+            "lang": "Ruby",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/Ruby/get.rb"
+            }
+          },
+          {
+            "lang": "Python",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/Python/get.py"
+            }
+          }
+        ]
+      },
+      "patch": {
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/jsonPatch"
+              }
+            }
+          },
+          "required": true
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/prefer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OKResult_tiers"
+          },
+          "204": {
+            "$ref": "#/components/responses/OKNoResult"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error401"
+          },
+          "403": {
+            "$ref": "#/components/responses/Error403"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/Error5XX"
+          }
+        },
+        "tags": [
+          "Tiers"
+        ],
+        "operationId": "updateTiers",
+        "summary": "Modifier un tiers",
+        "description": "Conforme à la RFC 6902 : JavaScript Object Notation (JSON) Patch ( https://tools.ietf.org/html/rfc6902 )\n\n",
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/cURL/patch.bat"
+            }
+          },
+          {
+            "lang": "C#",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/CSharp/patch.cs"
+            }
+          },
+          {
+            "lang": "Node",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/JS/patch.js"
+            }
+          },
+          {
+            "lang": "Ruby",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/Ruby/patch.rb"
+            }
+          },
+          {
+            "lang": "Python",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/Python/patch.py"
+            }
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/idTiers"
+        }
+      ]
+    },
+    "/api/tiers/tiers/{idTiers}/representants": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/select"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/expand"
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "$ref": "#/components/parameters/orderby"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "value"
+                  ],
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/tiersRepresentant"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": "OK, retourne une liste d'objets"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error401"
+          },
+          "403": {
+            "$ref": "#/components/responses/Error403"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/Error5XX"
+          }
+        },
+        "tags": [
+          "Représentants"
+        ],
+        "operationId": "getTiersRepres",
+        "summary": "Récupérer des représentants",
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/cURL/get.bat"
+            }
+          },
+          {
+            "lang": "C#",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/CSharp/get.cs"
+            }
+          },
+          {
+            "lang": "Node",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/JS/get.js"
+            }
+          },
+          {
+            "lang": "Ruby",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/Ruby/get.rb"
+            }
+          },
+          {
+            "lang": "Python",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/Python/get.py"
+            }
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/idTiers"
+        }
+      ]
+    },
+    "/api/tiers/tiers/{idTiers}/representants/{idRepres}": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/expand"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tiersRepresentant"
+                }
+              }
+            },
+            "description": "OK, retourne un objet"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error401"
+          },
+          "403": {
+            "$ref": "#/components/responses/Error403"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/Error5XX"
+          }
+        },
+        "tags": [
+          "Représentants"
+        ],
+        "operationId": "getTiersRepresById",
+        "summary": "Récupérer un représentant",
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/cURL/get.bat"
+            }
+          },
+          {
+            "lang": "C#",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/CSharp/get.cs"
+            }
+          },
+          {
+            "lang": "Node",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/JS/get.js"
+            }
+          },
+          {
+            "lang": "Ruby",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/Ruby/get.rb"
+            }
+          },
+          {
+            "lang": "Python",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/Python/get.py"
+            }
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/idRepres"
+        },
+        {
+          "$ref": "#/components/parameters/idTiers"
+        }
+      ]
+    },
+    "/api/tiers/parametrages/{categorie}": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/categorie"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "value"
+                  ],
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/codif"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": "OK, retourne une liste d'objets"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error401"
+          },
+          "403": {
+            "$ref": "#/components/responses/Error403"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/Error5XX"
+          }
+        },
+        "tags": [
+          "Paramétrages"
+        ],
+        "operationId": "getParamCategorie",
+        "summary": "Récupérer une catégorie",
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/cURL/get.bat"
+            }
+          },
+          {
+            "lang": "C#",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/CSharp/get.cs"
+            }
+          },
+          {
+            "lang": "Node",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/JS/get.js"
+            }
+          },
+          {
+            "lang": "Ruby",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/Ruby/get.rb"
+            }
+          },
+          {
+            "lang": "Python",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/Python/get.py"
+            }
+          }
+        ],
+        "description": "Récupère la liste des valeurs d'une catégorie"
+      }
+    },
+    "/api/tiers/parametrages/{categorie}/{value}": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/categorie"
+          },
+          {
+            "name": "value",
+            "description": "Valeur d'une catégorie",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/codif"
+                }
+              }
+            },
+            "description": "OK, retourne un objet"
+          },
+          "400": {
+            "$ref": "#/components/responses/Error400"
+          },
+          "401": {
+            "$ref": "#/components/responses/Error401"
+          },
+          "403": {
+            "$ref": "#/components/responses/Error403"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error404"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/Error5XX"
+          }
+        },
+        "tags": [
+          "Paramétrages"
+        ],
+        "operationId": "getCategorieValue",
+        "summary": "Récupérer une valeur d'une catégorie",
+        "x-codeSamples": [
+          {
+            "lang": "cURL",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/cURL/get.bat"
+            }
+          },
+          {
+            "lang": "C#",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/CSharp/get.cs"
+            }
+          },
+          {
+            "lang": "Node",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/JS/get.js"
+            }
+          },
+          {
+            "lang": "Ruby",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/Ruby/get.rb"
+            }
+          },
+          {
+            "lang": "Python",
+            "source": {
+              "$ref": "../../../../tools/Redocly/code_samples/Python/get.py"
+            }
+          }
+        ],
+        "description": "Récupère une valeur de catégorie"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "tiers": {
+        "required": [
+          "typeTiers"
+        ],
+        "x-not-patchable": [
+          "typeTiers"
+        ],
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "$ref": "#/components/parameters/timestamp"
+          },
+          "code": {
+            "description": "Identifiant unique du tiers",
+            "type": "string"
+          },
+          "typeTiers": {
+            "$ref": "#/components/schemas/linkTypeTiers"
+          },
+          "caracteristiquesPhysiques": {
+            "description": "Caractéristiques physiques du tiers",
+            "type": "object",
+            "required": [
+              "nom",
+              "prenomUsuel"
+            ],
+            "properties": {
+              "nom": {
+                "description": "Nom",
+                "type": "string"
+              },
+              "prenomUsuel": {
+                "description": "Prénom d’usage",
+                "type": "string"
+              },
+              "dateNaissance": {
+                "description": "Date de naissance",
+                "format": "date",
+                "type": "string"
+              },
+              "lieuNaissance": {
+                "description": "Lieu de naissance",
+                "type": "string"
+              },
+              "nomNaissance": {
+                "description": "Nom de naissance",
+                "type": "string"
+              },
+              "civilite": {
+                "$ref": "#/components/schemas/linkCivilite"
+              },
+              "droitAccesInfos": {
+                "description": "Formulaire soumis à un droit d’accès et de rectification aux informations. Les informations collectées ne sont pas destinées à un traitement commercial (téléphone, mailing, autre)",
+                "type": "boolean"
+              },
+              "profession": {
+                "description": "Profession",
+                "type": "string"
+              },
+              "nationalite": {
+                "description": "Nationalité",
+                "$ref": "#/components/schemas/linkNationalite"
+              },
+              "employeur": {
+                "description": "Employeur",
+                "type": "string"
+              },
+              "situationFamiliale": {
+                "$ref": "#/components/schemas/linkSituationFamiliale"
+              }
+            }
+          },
+          "caracteristiquesMorales": {
+            "description": "Caractéristiques morales du tiers",
+            "type": "object",
+            "required": [
+              "raisonSociale"
+            ],
+            "properties": {
+              "raisonSociale": {
+                "description": "Raison sociale",
+                "type": "string"
+              },
+              "nomCommercial": {
+                "description": "Nom commercial",
+                "type": "string"
+              },
+              "SIRET": {
+                "description": "SIRET (Système Informatique pour le Répertoire des Entreprises sur le Territoire)",
+                "maxLength": 14,
+                "type": "string"
+              },
+              "RCS": {
+                "description": "RCS (Registre du commerce et des sociétés)",
+                "type": "string"
+              },
+              "tribunalCommerce": {
+                "description": "Tribunal de commerce",
+                "type": "string"
+              },
+              "codeAPE": {
+                "$ref": "#/components/schemas/linkCodeApe"
+              },
+              "libelleAPE": {
+                "description": "Libellé APE (Activité Principale Exercée)",
+                "type": "string"
+              },
+              "tvaIntraUE": {
+                "description": "N° TVA intracommunautaire",
+                "type": "string"
+              },
+              "formeJuridique": {
+                "$ref": "#/components/schemas/linkFormeJuridique"
+              },
+              "activitePrincipale": {
+                "description": "Activité principale",
+                "type": "string"
+              },
+              "dateDebut": {
+                "description": "Début d'activité",
+                "format": "date",
+                "type": "string"
+              },
+              "dateFermeture": {
+                "description": "Cession d'activité du tiers (liquidation, départ retraite artisan, …)",
+                "format": "date",
+                "type": "string"
+              },
+              "appartenanceGroupe": {
+                "description": "Tiers faisant partie d’un groupe. Valeur false par défaut",
+                "type": "boolean"
+              },
+              "capital": {
+                "description": "Capital social",
+                "type": "number",
+                "format": "money"
+              }
+            }
+          },
+          "refComptable": {
+            "description": "Référence comptable du tiers",
+            "type": "string"
+          },
+          "refExterne": {
+            "description": "Référence externe",
+            "type": "string",
+            "format": "code"
+          },
+          "refExternes": {
+            "description": "Références externes multiples à SPO",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "cle",
+                "valeur"
+              ],
+              "properties": {
+                "cle": {
+                  "type": "string"
+                },
+                "valeur": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "actif": {
+            "description": "Indique si le tiers est actif (true). Valeur true par défaut",
+            "type": "boolean"
+          },
+          "lectureSeule": {
+            "description": "Indique si le tiers est en lecture seule (true). Valeur false par défaut",
+            "type": "boolean"
+          },
+          "commentaire": {
+            "description": "Commentaire",
+            "type": "string"
+          },
+          "courriels": {
+            "description": "Courriel (ne renseigner qu'un seul courriel)",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sitesWeb": {
+            "description": "Site Web (ne renseigner qu'un seul site web, uniquement disponible pour les tiers moraux)",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "telephones": {
+            "description": "Téléphones",
+            "$ref": "#/components/schemas/tiersPhone"
+          },
+          "adresses": {
+            "description": "Adresses",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tiersAdresse"
+            }
+          },
+          "representants": {
+            "description": "Représentants",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tiersRepresentant"
+            }
+          },
+          "coordonneesBancaires": {
+            "description": "Coordonnées bancaires",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tiersRIB"
+            }
+          },
+          "roles": {
+            "description": "Rôles",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tiersRole"
+            }
+          },
+          "infosComplementaires": {
+            "description": "Informations complémentaires",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/infosComplementaires"
+            }
+          },
+          "societes": {
+            "description": "Sociétés",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/societes"
+            }
+          },
+          "documents": {
+            "readOnly": true,
+            "description": "Liste des documents joints",
+            "$ref": "#/components/schemas/documents"
+          }
+        }
+      },
+      "tiersAdresse": {
+        "type": "object",
+        "required": [
+          "codePostal",
+          "ville"
+        ],
+        "properties": {
+          "code": {
+            "description": "Identifiant unique",
+            "type": "string"
+          },
+          "libelle": {
+            "description": "Libellé",
+            "type": "string"
+          },
+          "principal": {
+            "description": "Adresse principale. Valeur false par défaut",
+            "type": "boolean"
+          },
+          "pointRemise": {
+            "description": "Complément d'identification : numéro d'appartement, boîte aux lettres, étage, couloir, ...",
+            "type": "string"
+          },
+          "complement": {
+            "description": "Bâtiment, escalier, ...",
+            "type": "string"
+          },
+          "nomVoie": {
+            "description": "Nom de la voie",
+            "type": "string"
+          },
+          "pointDistrib": {
+            "description": "Numéro de boîte postale",
+            "type": "string"
+          },
+          "codePostal": {
+            "description": "Code postal",
+            "type": "string"
+          },
+          "ville": {
+            "description": "Ville",
+            "type": "string"
+          },
+          "pays": {
+            "description": "Pays",
+            "$ref": "#/components/schemas/linkPays"
+          },
+          "lectureSeule": {
+            "description": "Indique si l'adresse est en lecture seule (true). Valeur false par défaut",
+            "type": "boolean"
+          }
+        }
+      },
+      "tiersRepresentant": {
+        "required": [
+          "nom",
+          "prenomUsuel"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "description": "Identifiant unique du représentant",
+            "type": "string"
+          },
+          "principal": {
+            "description": "Représentant principal. Valeur false par défaut",
+            "type": "boolean"
+          },
+          "nom": {
+            "description": "Nom",
+            "type": "string"
+          },
+          "prenomUsuel": {
+            "description": "Prénom d’usage",
+            "type": "string"
+          },
+          "civilite": {
+            "description": "Civilité",
+            "$ref": "#/components/schemas/linkCivilite"
+          },
+          "actif": {
+            "description": "Représentant actif. Valeur true par défaut",
+            "type": "boolean"
+          },
+          "dateEntree": {
+            "description": "Date de prise de fonction dans l'entité",
+            "format": "date",
+            "deprecated": true,
+            "type": "string"
+          },
+          "dateSortie": {
+            "description": "Date de cession d'activité dans l’entité",
+            "format": "date",
+            "deprecated": true,
+            "type": "string"
+          },
+          "courriels": {
+            "description": "Courriels",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sitesWeb": {
+            "deprecated": true,
+            "description": "Sites Web",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "telephones": {
+            "description": "Téléphones",
+            "$ref": "#/components/schemas/tiersPhoneRepres"
+          },
+          "adrPointRemise": {
+            "description": "Complément d'identification : numéro d'appartement, boîte aux lettres, étage, couloir, ...",
+            "type": "string"
+          },
+          "adrComplement": {
+            "description": "Bâtiment, escalier, ...",
+            "type": "string"
+          },
+          "adrNomVoie": {
+            "type": "string"
+          },
+          "adrPointDistrib": {
+            "description": "Numéro de boîte postale",
+            "type": "string"
+          },
+          "adrCodePostal": {
+            "description": "Code postal",
+            "type": "string"
+          },
+          "adrVille": {
+            "description": "Ville",
+            "type": "string"
+          },
+          "fonction": {
+            "description": "Fonction dans l'entité",
+            "deprecated": true,
+            "type": "string"
+          },
+          "adrPays": {
+            "description": "Pays",
+            "$ref": "#/components/schemas/linkPays"
+          },
+          "nationalite": {
+            "description": "Nationalité",
+            "$ref": "#/components/schemas/linkNationalite"
+          },
+          "dateNaissance": {
+            "description": "Date de naissance",
+            "type": "string",
+            "format": "date"
+          },
+          "lieuNaissance": {
+            "description": "Lieu de naissance",
+            "type": "string"
+          },
+          "nomNaissance": {
+            "description": "Nom de naissance",
+            "type": "string"
+          },
+          "employeur": {
+            "description": "Employeur",
+            "type": "string"
+          },
+          "profession": {
+            "description": "Profession",
+            "type": "string"
+          },
+          "lectureSeule": {
+            "description": "Indique si le représentant est en lecture seule (true). Valeur false par défaut",
+            "type": "boolean"
+          }
+        }
+      },
+      "tiersRIB": {
+        "required": [
+          "titulaire"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "description": "Identifiant unique de la coordonnée bancaire",
+            "type": "string"
+          },
+          "titulaire": {
+            "description": "Titulaire du compte",
+            "type": "string"
+          },
+          "principal": {
+            "description": "Coordonnée bancaire principale. Valeur false par défaut",
+            "type": "boolean"
+          },
+          "banque": {
+            "description": "Banque",
+            "type": "string"
+          },
+          "RIB": {
+            "description": "RIB (Relevé d'Identité Bancaire)",
+            "maxLength": 34,
+            "type": "string"
+          },
+          "IBAN": {
+            "description": "IBAN (International Bank Account Number)",
+            "maxLength": 34,
+            "type": "string"
+          },
+          "BIC": {
+            "description": "BIC (Bank Identifier Code)",
+            "maxLength": 11,
+            "type": "string"
+          },
+          "actif": {
+            "description": "Coordonnée bancaire active. Valeur true par défaut",
+            "type": "boolean"
+          },
+          "lectureSeule": {
+            "description": "Indique si la coordonnée bancaire est en lecture seule (true). Valeur false par défaut",
+            "type": "boolean"
+          }
+        }
+      },
+      "tiersPhone": {
+        "description": "Téléphones",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "description": "Type",
+              "type": "string",
+              "enum": [
+                "WORK",
+                "CELL"
+              ]
+            },
+            "value": {
+              "description": "Valeur",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "tiersPhoneRepres": {
+        "description": "Téléphones",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "description": "Type",
+              "type": "string",
+              "enum": [
+                "WORK",
+                "CELL"
+              ]
+            },
+            "value": {
+              "description": "Valeur",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "tiersRole": {
+        "description": "Rôles du tiers",
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/linkCodesRoles"
+          }
+        }
+      },
+      "infosComplementaires": {
+        "type": "object",
+        "description": "Les informations complémentaires correspondent aux champs personnalisables",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "cle": {
+            "description": "Information complémentaire : /api/tiers/infosComplementaires/tiers",
+            "type": "object",
+            "required": [
+              "href"
+            ],
+            "properties": {
+              "href": {
+                "type": "string",
+                "format": "uri",
+                "description": "Lien vers le paramétrage du champ d'information complémentaire"
+              },
+              "title": {
+                "type": "string",
+                "description": "Libellé de l'information complémentaire"
+              },
+              "type": {
+                "description": "Type de l'information complémentaire",
+                "type": "string",
+                "enum": [
+                  "string",
+                  "date",
+                  "boolean",
+                  "money",
+                  "number",
+                  "integer",
+                  "enum"
+                ]
+              }
+            }
+          },
+          "valeur": {
+            "description": "Valeur de l'information complémentaire. Est de type 'string' pour les types 'string', 'date' et 'enum'",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          }
+        }
+      },
+      "societes": {
+        "description": "Sociétés",
+        "type": "object",
+        "properties": {
+          "societe": {
+            "$ref": "#/components/schemas/linkSociete"
+          }
+        }
+      },
+      "documents": {
+        "allOf": [
+          {
+            "description": "Liste des documents joints",
+            "readOnly": true
+          },
+          {
+            "$ref": "#/components/schemas/link"
+          },
+          {
+            "properties": {
+              "value": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/link"
+                    },
+                    {
+                      "description": ""
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      "codif": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "libelle": {
+            "type": "string"
+          }
+        }
+      },
+      "link": {
+        "type": "object",
+        "properties": {
+          "rel": {
+            "type": "string",
+            "format": "code"
+          },
+          "href": {
+            "type": "string",
+            "format": "uri"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "GET",
+              "PUT",
+              "POST",
+              "PATCH",
+              "DELETE",
+              "HEADER"
+            ]
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "title": "MIME type"
+            }
+          },
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        }
+      },
+      "jsonPatch": {
+        "type": "array",
+        "items": {
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "op"
+          ],
+          "properties": {
+            "path": {
+              "description": "Path",
+              "type": "string"
+            },
+            "op": {
+              "description": "Opération",
+              "type": "string",
+              "enum": [
+                "add",
+                "replace",
+                "remove"
+              ]
+            },
+            "value": {
+              "description": "Valeur"
+            }
+          }
+        }
+      },
+      "errorFormat": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "description": "Code",
+                "type": "string"
+              },
+              "message": {
+                "description": "Message",
+                "type": "string"
+              },
+              "target": {
+                "description": "Cible de l'erreur",
+                "type": "string"
+              },
+              "details": {
+                "description": "Détails",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "description": "Code",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Message",
+                      "type": "string"
+                    },
+                    "target": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "innerError": {
+                "type": "object",
+                "properties": {
+                  "trace": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "context": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "linkTypeTiers": {
+        "allOf": [
+          {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/link"
+              }
+            ]
+          },
+          {
+            "description": "Type de tiers : /api/tiers/parametrages/codesTypeTiers"
+          }
+        ]
+      },
+      "linkCodesRoles": {
+        "allOf": [
+          {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/link"
+              }
+            ]
+          },
+          {
+            "description": "Rôles: /api/tiers/parametrages/codesRoles"
+          }
+        ]
+      },
+      "linkCivilite": {
+        "allOf": [
+          {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/link"
+              }
+            ]
+          },
+          {
+            "description": "Civilité du tiers : /api/tiers/parametrages/codesCivilite"
+          }
+        ]
+      },
+      "linkPays": {
+        "allOf": [
+          {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/link"
+              }
+            ]
+          },
+          {
+            "description": "Pays : /api/tiers/parametrages/codesPays"
+          }
+        ]
+      },
+      "linkNationalite": {
+        "allOf": [
+          {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/link"
+              }
+            ]
+          },
+          {
+            "description": "Nationalité : /api/tiers/parametrages/codesNationalite"
+          }
+        ]
+      },
+      "linkFormeJuridique": {
+        "allOf": [
+          {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/link"
+              }
+            ]
+          },
+          {
+            "description": "Forme juridique : /api/tiers/parametrages/codesFormeJuridiques"
+          }
+        ]
+      },
+      "linkCodeApe": {
+        "allOf": [
+          {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/link"
+              }
+            ]
+          },
+          {
+            "description": "Code APE : /api/tiers/parametrages/codesAPEs"
+          }
+        ]
+      },
+      "linkSituationFamiliale": {
+        "allOf": [
+          {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/link"
+              }
+            ]
+          },
+          {
+            "description": "Situation Familiale : /api/tiers/parametrages/codesSituationFamiliale"
+          }
+        ]
+      },
+      "linkSociete": {
+        "allOf": [
+          {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/link"
+              }
+            ]
+          },
+          {
+            "description": "Société : /api/societes/societes"
+          }
+        ]
+      }
+    },
+    "parameters": {
+      "filter": {
+        "name": "$filter",
+        "description": "Filtre sur les champs (syntaxe OData)\n\nChamps supportés :\n* Les champs de 1er niveau de la ressource ayant un type de base (string, number, boolean, ...)\n\nOpérateurs supportés : \n* **eq** (equal), **ne** (not equal), **lt** (less than), **le** (less or equal), **gt** (greater than), **ge** (greater or equal)\n* **not**, **mul**, **div**, **mod** (modulo), **add**, **sub**\n* **in**\n* **and**, **or**\n\nFonctions supportées:\n* **startswith**\n* **endswith** *Exemple : /api/tiers/tiers?$filter=endswith(refComptable, '0003')*\n* **contains**\n* **substringof**\n* **tolower**\n* **toupper**",
+        "x-examples": {
+          "refComptaFilter": {
+            "summary": "Filtrer par référence comptable du tiers",
+            "description": "Filtrer les résultats selon la référence comptable du tiers",
+            "value": "$filter=refComptable eq 'F122667A"
+          },
+          "timestampFilter": {
+            "summary": "Filtrer par timestamp",
+            "description": "Rechercher les ressources modifiées depuis le 30/07/2020 à 15h00",
+            "value": "$filter=timestamp gt '2020-07-30T15:00:00'"
+          },
+          "combineFilter": {
+            "summary": "Filtre combiné",
+            "description": "Exemple de filtre de recherche à la fois sur la référence de l'opération et dont la date de dernière modification est postérieure au 30/07/2020 à 15h00",
+            "value": "$filter=operation.href eq '/api/operations/operations/00000437' and timestamp gt '2020-07-30T15:00:00'"
+          }
+        },
+        "schema": {
+          "format": "OData filter",
+          "type": "string"
+        },
+        "in": "query",
+        "required": false
+      },
+      "count": {
+        "name": "$count",
+        "description": "Récupérer le nombre de tiers dans la propriété @odata.count",
+        "x-examples": {
+          "dataCount": {
+            "summary": "Nombre d'éléments",
+            "description": "Récupére les 10 premiers tiers et renvoie le nombre de tiers dans la propriété @odata.count",
+            "value": "$top=10&$count=true"
+          }
+        },
+        "schema": {
+          "type": "boolean"
+        },
+        "in": "query",
+        "required": false
+      },
+      "orderby": {
+        "name": "$orderby",
+        "description": "Trier les tiers retournés. Exemple : libelle, nom desc",
+        "schema": {
+          "type": "string"
+        },
+        "in": "query",
+        "required": false
+      },
+      "top": {
+        "name": "$top",
+        "description": "Récupérer les N premiers résultats\n* En l'absence de précision, seuls les 100 premiers éléments sont retournés. Les paramètres $top et $skip peuvent être utilisés",
+        "schema": {
+          "type": "number"
+        },
+        "in": "query",
+        "required": false
+      },
+      "select": {
+        "name": "$select",
+        "description": "Récupérer les résultats avec seulement les propriétés choisies. Exemple : code, libelle, adresses",
+        "schema": {
+          "type": "string"
+        },
+        "in": "query",
+        "required": false
+      },
+      "skip": {
+        "name": "$skip",
+        "description": "Passer les N premiers résultats",
+        "schema": {
+          "type": "number"
+        },
+        "in": "query",
+        "required": false
+      },
+      "timestamp": {
+        "name": "timestamp",
+        "description": "Timestamp de synchronisation. Si renseigné, la réponse contiendra uniquement les données impactées depuis ce timestamp. Si absent, toutes les données seront envoyées",
+        "schema": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "in": "query",
+        "required": false
+      },
+      "prefer": {
+        "name": "Prefer",
+        "in": "header",
+        "description": "Récupérer ou non du contenu dans le body de la réponse (POST et PATCH)",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "return=representation",
+            "return=minimal"
+          ],
+          "default": "return=representation"
+        }
+      },
+      "expand": {
+        "name": "$expand",
+        "description": "Retourne des ressources associées (syntaxe OData): Exemple: /api/domaine/ressource?$expand=documents",
+        "schema": {
+          "type": "string"
+        },
+        "in": "query",
+        "required": false
+      },
+      "idTiers": {
+        "name": "idTiers",
+        "description": "Identifiant du tiers",
+        "schema": {
+          "type": "string"
+        },
+        "in": "path",
+        "required": true
+      },
+      "idRepres": {
+        "name": "idRepres",
+        "description": "Identifiant du représentant",
+        "schema": {
+          "type": "string"
+        },
+        "in": "path",
+        "required": true
+      },
+      "categorie": {
+        "name": "categorie",
+        "description": "Nom de la catégorie",
+        "schema": {
+          "type": "string"
+        },
+        "in": "path",
+        "required": true
+      }
+    },
+    "responses": {
+      "OKResult_tiers": {
+        "description": "OK, opération effectuée avec succès. Nouvel état de la ressource renvoyé.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/tiers"
+            }
+          }
+        },
+        "headers": {
+          "Location": {
+            "$ref": "#/components/headers/location"
+          }
+        }
+      },
+      "OKNoResult": {
+        "description": "OK, pas de contenu dans la réponse (header Prefer: return=minimal)",
+        "headers": {
+          "Location": {
+            "$ref": "#/components/headers/location"
+          }
+        }
+      },
+      "Error400": {
+        "description": "Paramètres incorrects de la requête",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/errorFormat"
+            }
+          }
+        }
+      },
+      "Error401": {
+        "description": "Accès non autorisé à la ressource car authentification nécessaire",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/errorFormat"
+            }
+          }
+        }
+      },
+      "Error403": {
+        "description": "Pas d'autorisation suffisante pour accéder à la ressource",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/errorFormat"
+            }
+          }
+        }
+      },
+      "Error404": {
+        "description": "Ressource non trouvée",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/errorFormat"
+            }
+          }
+        }
+      },
+      "Error405": {
+        "description": "Méthode non autorisée",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/errorFormat"
+            }
+          }
+        }
+      },
+      "Error501": {
+        "description": "Fonctionnalité non supportée",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/errorFormat"
+            }
+          }
+        }
+      },
+      "Error5XX": {
+        "description": "Erreurs diverses du serveur",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/errorFormat"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "scheme": "bearer",
+        "type": "http",
+        "description": "Example: \n> Authorization: Bearer <token>",
+        "x-last-modified": 1590573413750
+      },
+      "basicAuth": {
+        "scheme": "basic",
+        "type": "http",
+        "description": "Example: \n> Authorization: Basic ZGVtbzpwQDU1dzByZA==",
+        "x-last-modified": 1590573768360
+      }
+    },
+    "headers": {
+      "location": {
+        "description": "URL relative de la ressource créée",
+        "schema": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "basicAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "domainUserFriendlyName",
+      "description": "{05}Tiers/Tiers",
+      "x-displayName": "Domaine tiers"
+    }
+  ],
+  "servers": [
+    {
+      "url": "/AccessionRV"
+    }
+  ]
+}
